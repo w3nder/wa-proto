@@ -13,17 +13,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/DikaArdnt/wa-proto.git"
-  },
-  "author": {
-    "name": "Dika Ardnt",
-    "url": "https://dikaardnt.com"
+    "url": "git+https://github.com/w3nder/wa-proto.git"
   },
   "license": "Apache-2.0",
   "bugs": {
-    "url": "https://github.com/DikaArdnt/wa-proto/issues"
+    "url": "https://github.com/w3nder/wa-proto/issues"
   },
-  "homepage": "https://github.com/DikaArdnt/wa-proto#readme",
+  "homepage": "https://github.com/w3nder/wa-proto#readme",
   "dependencies": {
     "long": "^5.2.4",
     "protobufjs": "^7.4.0"
