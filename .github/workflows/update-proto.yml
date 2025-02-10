@@ -17,6 +17,8 @@ jobs:
       steps:
          - name: Checkout repository
            uses: actions/checkout@v3
+           with:
+              fetch-depth: 0
 
          - name: Setup Node
            uses: actions/setup-node@v4
@@ -60,11 +62,17 @@ jobs:
               fi
               echo "$WA_VERSION" > proto/.version
 
-         - name: Commit changes
+         - name: Commit and Push Changes
            if: steps.check_update.outputs.result == 'updated'
            run: |
               git config --global user.email "github-actions[bot]@users.noreply.github.com"
               git config --global user.name "github-actions[bot]"
+              
               git add .
               git commit -m "chore: update protobuf to v${{ steps.fetch.outputs.WA_VERSION }}"
-              git push
+              
+              # Sincroniza o repositório antes do push para evitar conflitos
+              git pull --rebase origin main
+              
+              # Tenta o push normalmente, mas se falhar, força o push seguro
+              git push || (git pull --rebase origin main && git push)
