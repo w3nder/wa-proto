@@ -27926,7 +27926,7 @@ $root.E2E = (function() {
          * @property {number|null} [rankingVersion] ContextInfo rankingVersion
          * @property {E2E.IMemberLabel|null} [memberLabel] ContextInfo memberLabel
          * @property {boolean|null} [isQuestion] ContextInfo isQuestion
-         * @property {E2E.ContextInfo.StatusSourceType|null} [statusType] ContextInfo statusType
+         * @property {E2E.ContextInfo.StatusSourceType|null} [statusSourceType] ContextInfo statusSourceType
          */
 
         /**
@@ -28315,12 +28315,12 @@ $root.E2E = (function() {
         ContextInfo.prototype.isQuestion = false;
 
         /**
-         * ContextInfo statusType.
-         * @member {E2E.ContextInfo.StatusSourceType} statusType
+         * ContextInfo statusSourceType.
+         * @member {E2E.ContextInfo.StatusSourceType} statusSourceType
          * @memberof E2E.ContextInfo
          * @instance
          */
-        ContextInfo.prototype.statusType = 0;
+        ContextInfo.prototype.statusSourceType = 0;
 
         /**
          * Creates a new ContextInfo instance using the specified properties.
@@ -28440,8 +28440,8 @@ $root.E2E = (function() {
                 $root.E2E.MemberLabel.encode(message.memberLabel, writer.uint32(/* id 62, wireType 2 =*/498).fork()).ldelim();
             if (message.isQuestion != null && Object.hasOwnProperty.call(message, "isQuestion"))
                 writer.uint32(/* id 63, wireType 0 =*/504).bool(message.isQuestion);
-            if (message.statusType != null && Object.hasOwnProperty.call(message, "statusType"))
-                writer.uint32(/* id 64, wireType 0 =*/512).int32(message.statusType);
+            if (message.statusSourceType != null && Object.hasOwnProperty.call(message, "statusSourceType"))
+                writer.uint32(/* id 64, wireType 0 =*/512).int32(message.statusSourceType);
             return writer;
         };
 
@@ -28665,7 +28665,7 @@ $root.E2E = (function() {
                         break;
                     }
                 case 64: {
-                        message.statusType = reader.int32();
+                        message.statusSourceType = reader.int32();
                         break;
                     }
                 default:
@@ -28893,10 +28893,10 @@ $root.E2E = (function() {
             if (message.isQuestion != null && message.hasOwnProperty("isQuestion"))
                 if (typeof message.isQuestion !== "boolean")
                     return "isQuestion: boolean expected";
-            if (message.statusType != null && message.hasOwnProperty("statusType"))
-                switch (message.statusType) {
+            if (message.statusSourceType != null && message.hasOwnProperty("statusSourceType"))
+                switch (message.statusSourceType) {
                 default:
-                    return "statusType: enum value expected";
+                    return "statusSourceType: enum value expected";
                 case 0:
                 case 1:
                 case 2:
@@ -29126,32 +29126,32 @@ $root.E2E = (function() {
             }
             if (object.isQuestion != null)
                 message.isQuestion = Boolean(object.isQuestion);
-            switch (object.statusType) {
+            switch (object.statusSourceType) {
             default:
-                if (typeof object.statusType === "number") {
-                    message.statusType = object.statusType;
+                if (typeof object.statusSourceType === "number") {
+                    message.statusSourceType = object.statusSourceType;
                     break;
                 }
                 break;
             case "IMAGE":
             case 0:
-                message.statusType = 0;
+                message.statusSourceType = 0;
                 break;
             case "VIDEO":
             case 1:
-                message.statusType = 1;
+                message.statusSourceType = 1;
                 break;
             case "GIF":
             case 2:
-                message.statusType = 2;
+                message.statusSourceType = 2;
                 break;
             case "AUDIO":
             case 3:
-                message.statusType = 3;
+                message.statusSourceType = 3;
                 break;
             case "TEXT":
             case 4:
-                message.statusType = 4;
+                message.statusSourceType = 4;
                 break;
             }
             return message;
@@ -29241,7 +29241,7 @@ $root.E2E = (function() {
                 object.rankingVersion = 0;
                 object.memberLabel = null;
                 object.isQuestion = false;
-                object.statusType = options.enums === String ? "IMAGE" : 0;
+                object.statusSourceType = options.enums === String ? "IMAGE" : 0;
             }
             if (message.stanzaId != null && message.hasOwnProperty("stanzaId"))
                 object.stanzaId = message.stanzaId;
@@ -29344,8 +29344,8 @@ $root.E2E = (function() {
                 object.memberLabel = $root.E2E.MemberLabel.toObject(message.memberLabel, options);
             if (message.isQuestion != null && message.hasOwnProperty("isQuestion"))
                 object.isQuestion = message.isQuestion;
-            if (message.statusType != null && message.hasOwnProperty("statusType"))
-                object.statusType = options.enums === String ? $root.E2E.ContextInfo.StatusSourceType[message.statusType] === undefined ? message.statusType : $root.E2E.ContextInfo.StatusSourceType[message.statusType] : message.statusType;
+            if (message.statusSourceType != null && message.hasOwnProperty("statusSourceType"))
+                object.statusSourceType = options.enums === String ? $root.E2E.ContextInfo.StatusSourceType[message.statusSourceType] === undefined ? message.statusSourceType : $root.E2E.ContextInfo.StatusSourceType[message.statusSourceType] : message.statusSourceType;
             return object;
         };
 
